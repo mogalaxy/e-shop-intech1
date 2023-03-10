@@ -32,11 +32,15 @@ if(isset($_POST['submit'])){
    <title>register</title>
 
    <!-- custom css file link  -->
-   <link rel="stylesheet" href="css/style.css">
    <link href="assets/vendor/google-css.css" rel="stylesheet">
-   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-   <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet">
+  <link href="assets/css/custom.css" rel="stylesheet">
    <style>
       input{
          text-align: center;
@@ -44,7 +48,25 @@ if(isset($_POST['submit'])){
    </style>
 </head>
 <body background="assets/my-img/203519.jpg">
+<header id="header" class="fixed-top  rounded-3">
+    <div class="container d-flex align-items-center justify-content-between  rounded-3">
 
+      <h1 class="logo"><a href="MainPage1.php">INTECH SHOP</a></h1>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto" href="#hero">Home</a></li>
+          <li><a class="nav-link scrollto" href="#about">About</a></li>
+          <li><a class="nav-link scrollto" href="shop.php">Shop</a></li>
+		      <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+          <li><a class="nav-link scrollto " href="login.php">Login</a></li>
+          <li><a class="nav-link scrollto active" href="register.php">Sign up</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav>
+
+    </div>
+  </header>
 <?php
 if(isset($message)){
    foreach($message as $message){
@@ -52,10 +74,12 @@ if(isset($message)){
    }
 }
 ?>
-   
-<div class="form-container">
+
 <br><br>
-<div id="login">
+<div id="login content">
+    <div class="content center">
+              <div class="contact">
+                <div class="info-box rounded-3">
         <div class="container border-class">
             <div id="login-row" class="row justify-content-center align-items-center">
                 <div id="login-column" class="col-md-4">
@@ -81,6 +105,5 @@ if(isset($message)){
    </form>
 
 </div>
-
 </body>
 </html>

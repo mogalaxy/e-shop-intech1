@@ -77,7 +77,10 @@ if(isset($message)){
 
 <body align="center">
    <br><br><br>
-    <div id="login">
+    <div id="login content">
+    <div class="content center">
+              <div class="contact">
+                <div class="info-box rounded-3">
         <div class="container border-class">
             <div id="login-row" class="row justify-content-center align-items-center">
                 <div id="login-column" class="col-md-4">
@@ -85,13 +88,11 @@ if(isset($message)){
                         <form id="login-form" class="form" action="" method="post">
                             <h3 class="text-center text-info">Login</h3>
                             <div class="form-group">
-                                <label for="email" class="text-info">Email:</label><br>
-                                <input type="email" name="email" id="email" class="form-control">
+                                <label for="email" class="text-info">Email:<input type="email" name="email" id="email" class="form-control"></label>     
                             </div>
                             <br>
                             <div class="form-group">
-                                <label for="password" class="text-info">Password:</label><br>
-                                <input type="text" name="password" id="password" class="form-control">
+                                <label for="password" class="text-info">Password:<input type="text" name="password" id="password" class="form-control"></label>
                             </div>
                             <br>
                             <div class="form-group">
