@@ -154,8 +154,13 @@ if(isset($_GET['delete_all'])){
             <div class="info-box rounded-3">
               <img src="admin/<?php echo $row['image']; ?>"  id="" alt="" style="width: 200px; height: 150px;">
               <a href="view_product.php?product=<?php echo $product['id'] ?>">
+              <p><div class="id"><?php echo $row['id']; ?></div></p>
               <h3><div class="name"><?php echo $row['name']; ?></div></h3>
               <p><div class="price"><?php echo $row['price']; ?></div></p>
+              <input type="hidden" name="product_id" value="<?php echo $row['id']; ?>">
+              <input type="hidden" name="product_image" value="<?php echo $row['image']; ?>">
+              <input type="hidden" name="product_name" value="<?php echo $row['name']; ?>">
+              <input type="hidden" name="product_price" value="<?php echo $row['price']; ?>">
               <input type="submit" value="add to cart" name="add_to_cart" class="buttom">
               </a>
             </div>
