@@ -12,10 +12,9 @@
         <div class="col-sm-4 col-md-3">
             <form method="post" action="index.php?action=add&id=<?php echo $product['id']?>">
                 <div class="products">
-                    <img src="image/<?php echo $product['image'];?> "/>
+                    <img src="admin/<?php echo $product['image'];?> "/>
                     <h4 class="text-muted">
-                        <?php echo $product['name'];?>
-                    </h4>
+                    <?php echo $product['name'];?></h4>
                     <h4><?php echo $product['price'];?></h4>
                     <h4><?php echo $product['info'];?></h4>
                     <button><a href="<?php echo $product['redirect']?>">Buy</a></button>
