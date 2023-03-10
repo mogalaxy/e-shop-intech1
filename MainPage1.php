@@ -17,14 +17,14 @@
   <link href="assets/css/custom.css" rel="stylesheet">
     <title >INTECH SHOP</title>
 </head>
-<?php
+
+<body background="assets/my-img/203519.jpg">
+	<center>
+  <?php
    include('config.php');
    $result = mysqli_query($conn, "SELECT * FROM products");      
    while($row = mysqli_fetch_array($result))
    ?>
-<body background="assets/my-img/203519.jpg">
-	<center>
-
   <header id="header" class="fixed-top  rounded-3">
     <div class="container d-flex align-items-center justify-content-between  rounded-3">
 
