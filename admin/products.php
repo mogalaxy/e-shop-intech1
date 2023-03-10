@@ -45,6 +45,7 @@
                 <div class='card-body'>
                     <h5 class='card-title'>$row[name]</h5>
                     <p class='card-text'>$row[price]</p>
+                    <p class='card-text'>$row[info]</p>
                     <a href='delete.php? id=$row[id]' class='btn btn-danger'>delete product</a>
                     <br>
                     <a href='update.php? id=$row[id]' class='btn btn-primary'>edit product</a>

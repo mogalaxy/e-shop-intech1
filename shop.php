@@ -152,14 +152,10 @@ if(isset($_GET['delete_all'])){
    ?>
        <div class="col-md-4 mt-4">
             <div class="info-box rounded-3">
-              <a href="">
-              <img src="admin/<?php echo $row['image']; ?>"  id="Mikrotik" alt="" style="width: 200px; height: 150px;">
+              <img src="admin/<?php echo $row['image']; ?>"  id="" alt="" style="width: 200px; height: 150px;">
+              <a href="view_product.php?product=<?php echo $product['id'] ?>">
               <h3><div class="name"><?php echo $row['name']; ?></div></h3>
               <p><div class="price"><?php echo $row['price']; ?></div></p>
-              <input type="number" min="1" name="product_quantity" value="1">
-              <input type="hidden" name="product_image" value="<?php echo $row['image']; ?>">
-              <input type="hidden" name="product_name" value="<?php echo $row['name']; ?>">
-              <input type="hidden" name="product_price" value="<?php echo $row['price']; ?>">
               <input type="submit" value="add to cart" name="add_to_cart" class="buttom">
               </a>
             </div>
@@ -187,7 +183,7 @@ if(isset($_GET['delete_all'])){
 
       <div class="me-md-auto text-center text-md-start rounded-3">
         <div class="copyright">
-          &copy; Copyright <strong><span>MOGALAXY</span></strong>. All Rights Reserved
+          &copy; Copyright <strong><span>MOHAMMED</span></strong>. All Rights Reserved
         </div>
         <div class="credits">
           Designed by Mohammed Ahmed Saeed
