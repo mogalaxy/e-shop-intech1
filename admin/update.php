@@ -22,7 +22,7 @@
         <div class="main">
             <form action="up.php" method="post" enctype="multipart/form-data">
                 <h2>edit product</h2>
-                <input type="text" name='id' value='<?php echo $data['id']?>'  style='display:none;'>
+                <input type="text" name='id' value='<?php echo $data['id']?>'  style='display:yes;'>
                 <br>
                 <input type="text" name='name' value='<?php echo $data['name']?>'>
                 <br>
