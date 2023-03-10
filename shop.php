@@ -83,11 +83,11 @@ if(isset($_GET['delete_all'])){
             <ul>
               <li><a class="nav-link scrollto" href="MainPage1.php">Home</a></li>
               <li><a class="nav-link scrollto" href="#about">About</a></li>
-              <li><a class="nav-link scrollto" href="#Partners">Partrners</a></li>
               <li><a class="nav-link scrollto active" href="shop.php">Shop</a></li>
               <li><a class="nav-link scrollto" href="#contact">Cart</a></li>
               <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
               <li><a class="nav-link scrollto" href="login.php">Login</a></li>
+              <li><a class="nav-link scrollto" href="register.php">Sign up</a></li>
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
           </nav>

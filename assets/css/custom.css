@@ -44,3 +44,8 @@ button {
     font-family: parisienne;
     border-radius: 8px;
   }
+  .border-class {
+    border: thin #000000 solid;
+    margin: 20px;
+    padding: 20px;
+}
