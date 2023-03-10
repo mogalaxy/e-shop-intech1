@@ -1,0 +1,46 @@
+
+::after {
+    box-sizing: border-box
+}
+
+body {
+    position: relative;
+    margin: var(--header-height) 0 0 0;
+    padding:  3rem;
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    transition: .5s
+}
+
+.button1 {
+	border-color: #9CD2FF ;
+	background-color: #008CBA;
+	border-radius: 8px;
+	height: 30px ; 
+} /* blue */ 
+
+button {
+    border-color: #0a5b9c ;
+    color: rgb(26, 93, 180);
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 0px 0px;
+    cursor: pointer;
+    font-family: parisienne;
+    border-radius: 8px;
+  }
+
+  #Con {
+    border-color: #b31e1e ;
+    color: rgb(255, 8, 0);
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 0px 0px;
+    cursor: pointer;
+    font-family: parisienne;
+    border-radius: 8px;
+  }
