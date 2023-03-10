@@ -54,7 +54,7 @@ if(isset($message)){
 ?>
    
 <div class="form-container">
-
+<br><br>
 <div id="login">
         <div class="container border-class">
             <div id="login-row" class="row justify-content-center align-items-center">
@@ -73,10 +73,6 @@ if(isset($message)){
                      <div class="form-group">
                                 <label for="password" class="text-info">Password:</label><br>
                                 <input type="password" name="password" id="password" class="form-control">
-                     </div>
-                     <div class="form-group">
-                                <label for="password" class="text-info">rePassword:</label><br>
-                                <input type="cpassword" name="cpassword" id="password" class="form-control">
                      </div>
                      <br>
                      <input type="submit" name="submit" class="btn btn-info btn-md" value="submit">

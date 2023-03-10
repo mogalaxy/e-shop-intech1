@@ -6,6 +6,7 @@ if(isset($_POST['update'])){
     $ID = $_POST['id'];
     $NAME  = $_POST['name'];
     $PRICE = $_POST['price'];
+    $INFO = $_POST['info'];
     $IMAGE = $_FILES['image'];
     $image_location = $_FILES['image']['tmp_name'];
     $image_name = $_FILES['image']['name'];

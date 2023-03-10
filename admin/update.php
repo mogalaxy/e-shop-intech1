@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Update | تعديل منتج</title>
+    <title>Edit product</title>
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
@@ -21,18 +21,20 @@
     <center>
         <div class="main">
             <form action="up.php" method="post" enctype="multipart/form-data">
-                <h2>تعديل المنتجات</h2>
+                <h2>edit product</h2>
                 <input type="text" name='id' value='<?php echo $data['id']?>'  style='display:none;'>
                 <br>
                 <input type="text" name='name' value='<?php echo $data['name']?>'>
                 <br>
+                <input type="text" name='info' value='<?php echo $data['info']?>'>
+                <br>
                 <input type="text" name='price' value='<?php echo $data['price']?>'>
                 <br>
                 <input type="file" id="file" name='image' style='display:none;'>
-                <label for="file"> تحديث صورة المنتج</label>
-                <button name='update' type='submit'>تعديل المنتج</button>
+                <label for="file"> update product image</label>
+                <button name='update' type='submit'>edit product</button>
                 <br><br>
-                <a href="products.php">عرض كل المنتجات</a>
+                <a href="products.php">Show all product</a>
             </form>
         </div>
         

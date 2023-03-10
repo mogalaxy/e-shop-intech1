@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Products | المنتجات </title>
+    <title>Products </title>
     <style>
         h3{
             font-family: 'Cairo', sans-serif;
@@ -31,7 +31,7 @@
 </head>
 <body>
     <center>
-        <h3>لوحة تحكم الادمن</h3>
+        <h3>Admin controler</h3>
     </center>
     <?php
     include('config.php');
@@ -45,8 +45,9 @@
                 <div class='card-body'>
                     <h5 class='card-title'>$row[name]</h5>
                     <p class='card-text'>$row[price]</p>
-                    <a href='delete.php? id=$row[id]' class='btn btn-danger'>حذف منتج</a>
-                    <a href='update.php? id=$row[id]' class='btn btn-primary'>تعديل منتج</a>
+                    <a href='delete.php? id=$row[id]' class='btn btn-danger'>delete product</a>
+                    <br>
+                    <a href='update.php? id=$row[id]' class='btn btn-primary'>edit product</a>
                 </div>
             </div>
         </main>
