@@ -12,7 +12,7 @@
         <div class="col-sm-4 col-md-3">
             <form method="post" action="index.php?action=add&id=<?php echo $product['id']?>">
                 <div class="products">
-                    <img src="image/<?php echo $product['image'];?>" class="img-responsive" />
+                    <img src="image/<?php echo $product['image'];?> "/>
                     <h4 class="text-muted">
                         <?php echo $product['name'];?>
                     </h4>
