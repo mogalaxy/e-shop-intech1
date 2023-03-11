@@ -28,7 +28,7 @@
     
           <nav id="navbar" class="navbar">
             <ul>
-              <li><a class="nav-link scrollto" href="MainPage1.php#hero">Home</a></li>
+              <li><a class="nav-link scrollto" href=".php#hero">Home</a></li>
               <li><a class="nav-link scrollto" href="#about">About</a></li>
               <li><a class="nav-link scrollto" href="#Partners">Partrners</a></li>
               <li><a class="nav-link scrollto active" href="#services">Shop</a></li>
@@ -46,7 +46,7 @@
         <div class="container" >
   
           <ol>
-            <li><a href="MainPage1.php">Home</a></li>
+            <li><a href=".php">Home</a></li>
             <li>Mikrotik CCR2004-1G-2XS-PCIe</li>
           </ol>
   

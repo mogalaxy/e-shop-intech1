@@ -81,13 +81,12 @@ if(isset($_GET['delete_all'])){
     
           <nav id="navbar" class="navbar">
             <ul>
-              <li><a class="nav-link scrollto" href="MainPage1.php">Home</a></li>
+              <li><a class="nav-link scrollto" href=".php">Home</a></li>
               <li><a class="nav-link scrollto" href="#about">About</a></li>
               <li><a class="nav-link scrollto active" href="shop.php">Shop</a></li>
               <li><a class="nav-link scrollto" href="#contact">Cart</a></li>
               <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-              <li><a class="nav-link scrollto" href="login.php">Login</a></li>
-              <li><a class="nav-link scrollto" href="register.php">Sign up</a></li>
+              <li><a class="nav-link scrollto" href="index.php?logout=<?php echo $user_id; ?>" onclick="return confirm('هل أنت متأكد أنك تريد تسجيل الخروج؟');" class="delete-btn">تسجيل الخروج</a></li>
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
           </nav>

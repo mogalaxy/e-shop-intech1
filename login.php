@@ -13,7 +13,7 @@ if(isset($_POST['submit'])){
    if(mysqli_num_rows($select) > 0){
       $row = mysqli_fetch_assoc($select);
       $_SESSION['user_id'] = $row['id'];
-      header('location:MainPage1.php');
+      header('location:shop.php');
    }else{
       $message[] = 'incorrect password or email!';
    }
@@ -48,7 +48,7 @@ if(isset($_POST['submit'])){
 <header id="header" class="fixed-top  rounded-3">
     <div class="container d-flex align-items-center justify-content-between  rounded-3">
 
-      <h1 class="logo"><a href="MainPage1.php">INTECH SHOP</a></h1>
+      <h1 class="logo"><a href=".php">INTECH SHOP</a></h1>
 
       <nav id="navbar" class="navbar">
         <ul>
