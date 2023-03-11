@@ -77,16 +77,22 @@ if(isset($_GET['delete_all'])){
     <header id="header" class="fixed-top">
         <div class="container d-flex align-items-center justify-content-between">
     
-          <h1 class="logo"><a href="index.html">INTECH SHOP</a></h1>
+          <h1 class="logo"><a href="index.php">INTECH SHOP</a></h1>
     
           <nav id="navbar" class="navbar">
             <ul>
-              <li><a class="nav-link scrollto" href=".php">Home</a></li>
+              <li><a class="nav-link scrollto" href="index.php">Home</a></li>
               <li><a class="nav-link scrollto" href="#about">About</a></li>
               <li><a class="nav-link scrollto active" href="shop.php">Shop</a></li>
               <li><a class="nav-link scrollto" href="#contact">Cart</a></li>
-              <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-              <li><a class="nav-link scrollto" href="index.php?logout=<?php echo $user_id; ?>" onclick="return confirm('هل أنت متأكد أنك تريد تسجيل الخروج؟');" class="delete-btn">تسجيل الخروج</a></li>
+              <li><a class="nav-link scrollto" href="index.php?logout=<?php echo $user_id; ?>" onclick="return confirm('Are you sure you want to log out?');" class="delete-btn">LOGOUT</a></li>
+              <?php
+      $select_user = mysqli_query($conn, "SELECT * FROM `users` WHERE id = '$user_id'") or die('query failed');
+      if(mysqli_num_rows($select_user) > 0){
+         $fetch_user = mysqli_fetch_assoc($select_user);
+      };
+   ?>
+            <li><a class="nav-link scrollto"<?php echo $fetch_user['name']; ?>></a></li>
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
           </nav>
@@ -95,6 +101,13 @@ if(isset($_GET['delete_all'])){
        
       </header>
       <br><br><br><br>
+      <?php
+if(isset($message)){
+   foreach($message as $message){
+      echo '<div class="message" onclick="this.remove();">'.$message.'</div>';
+   }
+}
+?>
 
       <table style="width: 100%;" >
         <tr>
@@ -152,32 +165,85 @@ if(isset($_GET['delete_all'])){
        <div class="col-md-4 mt-4">
             <div class="info-box rounded-3">
               <img src="admin/<?php echo $row['image']; ?>"  id="" alt="" style="width: 200px; height: 150px;">
-              <a href="view_product.php?product=<?php echo $product['id'] ?>">
               <p><div class="id"><?php echo $row['id']; ?></div></p>
               <h3><div class="name"><?php echo $row['name']; ?></div></h3>
               <p><div class="price"><?php echo $row['price']; ?></div></p>
-              <input type="hidden" name="product_id" value="<?php echo $row['id']; ?>">
+              <input type="number" min="1" name="product_quantity" value="1">
               <input type="hidden" name="product_image" value="<?php echo $row['image']; ?>">
               <input type="hidden" name="product_name" value="<?php echo $row['name']; ?>">
               <input type="hidden" name="product_price" value="<?php echo $row['price']; ?>">
-              <input type="submit" value="add to cart" name="add_to_cart" class="buttom">
-              </a>
+              <input type="submit" value="add to cart" name="add_to_cart" class="btn">
             </div>
           </div>
           <?php
       };
    ?>
 
-
-          <div id="page2" class="tabcontent">
-
-  
-        </div>
       </div>
       </div>
     </th>
     </tr>
     </table>
+    <div class="row no-gutters">
+			<font color="white">
+          <div class="content container">
+            <div class="content">
+              <div class=" contact">
+                <div class="info-box rounded-3">
+                <div class="shopping-cart">
+
+   <h1 class="heading"> عربة التسوق</h1>
+
+   <table>
+      <thead>
+         <th>الصورة</th>
+         <th>الاسم</th>
+         <th>السعر</th>
+         <th>العدد</th>
+         <th>السعر الكلي</th>
+         <th>العمل</th>
+      </thead>
+      <tbody>
+      <?php
+         $cart_query = mysqli_query($conn, "SELECT * FROM `cart` WHERE user_id = '$user_id'") or die('query failed');
+         $grand_total = 0;
+         if(mysqli_num_rows($cart_query) > 0){
+            while($fetch_cart = mysqli_fetch_assoc($cart_query)){
+      ?>
+         <tr>
+            <td><img src="admin/<?php echo $fetch_cart['image']; ?>" height="75" alt=""></td>
+            <td><?php echo $fetch_cart['name']; ?></td>
+            <td><?php echo $fetch_cart['price']; ?>$ </td>
+            <td>
+               <form action="" method="post">
+                  <input type="hidden" name="cart_id" value="<?php echo $fetch_cart['id']; ?>">
+                  <input type="number" min="1" name="cart_quantity" value="<?php echo $fetch_cart['quantity']; ?>">
+                  <input type="submit" name="update_cart" value="تعديل" class="option-btn">
+               </form>
+            </td>
+            <td><?php echo $sub_total = ($fetch_cart['price'] * $fetch_cart['quantity']); ?>$</td>
+            <td><a href="shop.php?remove=<?php echo $fetch_cart['id']; ?>" class="delete-btn" onclick="return confirm('إزالة العنصر من سلة التسوق؟');">حذف</a></td>
+         </tr>
+      <?php
+         $grand_total += $sub_total;
+            }
+         }else{
+            echo '<tr><td style="padding:20px; text-transform:capitalize;" colspan="6">العربة فارغة</td></tr>';
+         }
+      ?>
+      <tr class="table-bottom">
+         <td colspan="4">المبلغ الإجمالي :</td>
+         <td><?php echo $grand_total; ?>$</td>
+         <td><a href="shop.php?delete_all" onclick="return confirm('حذف كل المنتجات من العربة?');" class="delete-btn <?php echo ($grand_total > 1)?'':'disabled'; ?>">حذف الكل</a></td>
+      </tr>
+   </tbody>
+   </table>
+
+
+
+</div>
+
+</div>
     <center>
       <button class="tablink" onclick="openPage('page1')">1</button>
       <button class="tablink" onclick="openPage('page2')">2</button>
@@ -202,29 +268,5 @@ if(isset($_GET['delete_all'])){
   </footer><!-- End Footer -->
 
   <script src="css/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="css/glightbox/js/glightbox.min.js"></script>
-  <script src="css/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="css/swiper/swiper-bundle-7.3.0.min.js"></script>
-  <script src="css/php-email-form/validate.js"></script>
-  <script src="css/js/main.js"></script>
-  <script src="css/js/custom.js"></script>
-  <script>
-    function openPage(pageName,elmnt,color) {
-      var i, tabcontent, tablinks;
-      tabcontent = document.getElementsByClassName("tabcontent");
-      for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-      }
-      tablinks = document.getElementsByClassName("tablink");
-      for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].style.backgroundColor = "";
-      }
-      document.getElementById(pageName).style.display = "block";
-      elmnt.style.backgroundColor = color;
-    }
-    
-    // Get the element with id="defaultOpen" and click on it
-    document.getElementById("defaultOpen").click();
-    </script>
 </body>
 </html>

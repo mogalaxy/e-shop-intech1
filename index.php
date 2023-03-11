@@ -28,7 +28,7 @@
   <header id="header" class="fixed-top  rounded-3">
     <div class="container d-flex align-items-center justify-content-between  rounded-3">
 
-      <h1 class="logo"><a href=".php">INTECH SHOP</a></h1>
+      <h1 class="logo"><a href="index.php">INTECH SHOP</a></h1>
 
       <nav id="navbar" class="navbar">
         <ul>
