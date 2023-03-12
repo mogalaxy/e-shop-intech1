@@ -13,7 +13,6 @@ if(isset($_GET['logout'])){
    session_destroy();
    header('location:login.php');
 };
-
 if(isset($_POST['add_to_cart'])){
 
    $product_name = $_POST['product_name'];
@@ -51,7 +50,6 @@ if(isset($_GET['delete_all'])){
 }
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -159,7 +157,7 @@ if(isset($message)){
 
    <h1 class="heading"> Shopping Cart</h1>
 
-   <table>
+   <table align="center">
       <thead>
          <th>image</th>
          <th>name</th>
@@ -209,11 +207,8 @@ if(isset($message)){
 </div>
 
 </div>
-    <center>
-      <button class="tablink" onclick="openPage('page1')">1</button>
-      <button class="tablink" onclick="openPage('page2')">2</button>
-      </center>
-	<footer id="footer" class="rounded-3">
+<br><br>
+<footer id="footer" class="rounded-3">
 	<div class="container d-md-flex py-4">
 
       <div class="me-md-auto text-center text-md-start rounded-3">
