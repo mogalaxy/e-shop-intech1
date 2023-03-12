@@ -24,10 +24,10 @@ if(isset($_POST['add_to_cart'])){
    $select_cart = mysqli_query($conn, "SELECT * FROM `cart` WHERE name = '$product_name' AND user_id = '$user_id'") or die('query failed');
 
    if(mysqli_num_rows($select_cart) > 0){
-      $message[] = 'المنتج أضيف بالفعل إلى عربة التسوق!';
+      $message[] = 'Product already added to cart!';
    }else{
       mysqli_query($conn, "INSERT INTO `cart`(user_id, name, price, image, quantity) VALUES('$user_id', '$product_name', '$product_price', '$product_image', '$product_quantity')") or die('query failed');
-      $message[] = 'المنتج يضاف الى عربة التسوق!';
+      $message[] = 'Product added to cart!';
    }
 
 };
@@ -36,7 +36,7 @@ if(isset($_POST['update_cart'])){
    $update_quantity = $_POST['cart_quantity'];
    $update_id = $_POST['cart_id'];
    mysqli_query($conn, "UPDATE `cart` SET quantity = '$update_quantity' WHERE id = '$update_id'") or die('query failed');
-   $message[] = 'تم تحديث كمية سلة التسوق بنجاح!';
+   $message[] = 'Cart quantity updated successfully!';
 }
 
 if(isset($_GET['remove'])){
@@ -110,42 +110,6 @@ if(isset($message)){
 ?>
 
       <table style="width: 100%;" >
-        <tr>
-          <th style="width: 20%; height: 100%;" valign="top"> 
-            <br><br><br>
-            <center>
-
-              <div class="container contact text-center">
-                <div class="info-box contact rounded-3" >
-              <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
-              <br><br>
-                <h3>Router</h3>
-
-                <h3>Switchs</h3>
-                
-                <h3>Points</h3>
-
-                <h3>Racks</h3>
-    
-                <h3>Cables</h3>
-
-                <h3>Tools</h3>
-
-                <div class="nav-item dropdown"> 
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
-                <h3>Companys</h3></a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown"> 
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Mikrotik</a> <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">Cisco</a> 
-                  <a class="dropdown-item" href="#">FortiGate</a>
-                  <a class="dropdown-item" href="#">ubiquntis</a> </div> </div>
-
-                
-                
-              </div>
-            </div>
-
             </center>
             </th>
 			<th>
@@ -193,16 +157,16 @@ if(isset($message)){
                 <div class="info-box rounded-3">
                 <div class="shopping-cart">
 
-   <h1 class="heading"> عربة التسوق</h1>
+   <h1 class="heading"> Shopping Cart</h1>
 
    <table>
       <thead>
-         <th>الصورة</th>
-         <th>الاسم</th>
-         <th>السعر</th>
-         <th>العدد</th>
-         <th>السعر الكلي</th>
-         <th>العمل</th>
+         <th>image</th>
+         <th>name</th>
+         <th>price</th>
+         <th>number</th>
+         <th>total price</th>
+         <th>edits</th>
       </thead>
       <tbody>
       <?php
@@ -219,23 +183,23 @@ if(isset($message)){
                <form action="" method="post">
                   <input type="hidden" name="cart_id" value="<?php echo $fetch_cart['id']; ?>">
                   <input type="number" min="1" name="cart_quantity" value="<?php echo $fetch_cart['quantity']; ?>">
-                  <input type="submit" name="update_cart" value="تعديل" class="option-btn">
+                  <input type="submit" name="update_cart" value="Edit" class="option-btn">
                </form>
             </td>
             <td><?php echo $sub_total = ($fetch_cart['price'] * $fetch_cart['quantity']); ?>$</td>
-            <td><a href="shop.php?remove=<?php echo $fetch_cart['id']; ?>" class="delete-btn" onclick="return confirm('إزالة العنصر من سلة التسوق؟');">حذف</a></td>
+            <td><a href="shop.php?remove=<?php echo $fetch_cart['id']; ?>" class="delete-btn" onclick="return confirm('Remove item from cart?');">Delete</a></td>
          </tr>
       <?php
          $grand_total += $sub_total;
             }
          }else{
-            echo '<tr><td style="padding:20px; text-transform:capitalize;" colspan="6">العربة فارغة</td></tr>';
+            echo '<tr><td style="padding:20px; text-transform:capitalize;" colspan="6">Cart Empty</td></tr>';
          }
       ?>
       <tr class="table-bottom">
-         <td colspan="4">المبلغ الإجمالي :</td>
+         <td colspan="4">Total amount :</td>
          <td><?php echo $grand_total; ?>$</td>
-         <td><a href="shop.php?delete_all" onclick="return confirm('حذف كل المنتجات من العربة?');" class="delete-btn <?php echo ($grand_total > 1)?'':'disabled'; ?>">حذف الكل</a></td>
+         <td><a href="shop.php?delete_all" onclick="return confirm('Remove all products from the cart?');" class="delete-btn <?php echo ($grand_total > 1)?'':'disabled'; ?>">Delete all</a></td>
       </tr>
    </tbody>
    </table>
