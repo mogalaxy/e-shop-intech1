@@ -1,0 +1,5 @@
+admin panel
+http://127.0.0.1/e-shop%20intech/admin/
+
+shop
+http://127.0.0.1/e-shop%20intech/index.php

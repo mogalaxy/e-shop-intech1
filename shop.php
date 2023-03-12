@@ -81,21 +81,10 @@ if(isset($_GET['delete_all'])){
               <li><a class="nav-link scrollto active" href="shop.php">Shop</a></li>
               <li><a class="nav-link scrollto" href="#contact">Cart</a></li>
               <li><a class="nav-link scrollto" href="login.php?logout=<?php echo $user_id; ?>" onclick="return confirm('Are you sure you want to log out?');" class="delete-btn">LOGOUT</a></li>
-              <?php
-      $select_user = mysqli_query($conn, "SELECT * FROM `users` WHERE id = '$user_id'") or die('query failed');
-      if(mysqli_num_rows($select_user) > 0){
-         $fetch_user = mysqli_fetch_assoc($select_user);
-      };
-   ?>
-            <li><a class="nav-link scrollto"<?php echo $fetch_user['name']; ?>></a></li>
             </ul>
-            <i class="bi bi-list mobile-nav-toggle"></i>
           </nav>
-    
         </div>
-       
       </header>
-      <br><br><br><br>
       <?php
 if(isset($message)){
    foreach($message as $message){
@@ -103,7 +92,6 @@ if(isset($message)){
    }
 }
 ?>
-
       <table style="width: 100%;" >
             </center>
             </th>
@@ -156,12 +144,12 @@ if(isset($message)){
       <br>
    <table align="center">
       <thead>
-         <th width="300px">image</th>
-         <th width="300px">name</th>
-         <th width="300px">price</th>
-         <th width="300px">number</th>
-         <th width="300px">total price</th>
-         <th width="300px">edits</th>
+         <th width="300px">Image</th>
+         <th width="300px">Name</th>
+         <th width="300px">Price</th>
+         <th width="300px">Quantity</th>
+         <th width="300px">Total price</th>
+         <th width="300px">Edits</th>
       </thead>
       <tbody>
       <?php
