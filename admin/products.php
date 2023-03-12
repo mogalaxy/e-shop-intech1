@@ -60,13 +60,13 @@ if(mysqli_num_rows($select_cart) > 0){
         echo "
         <center>
         <main>
-            <div class='card' style='width: 15rem;'>
+            <div class='card' style='width: 30%; height: 420px;'>
                 <img src='$row[image]' class='card-img-top'>
                 <div class='card-body'>
                     <h5 class='card-title'>$row[name]</h5>
                     <p class='card-text'>$row[price]</p>
                     <a href='delete.php? id=$row[id]' class='btn btn-danger'>delete product</a>
-                    <br>
+                    <br> <br>
                     <a href='update.php? id=$row[id]' class='btn btn-primary'>edit product</a>
                 </div>
             </div>

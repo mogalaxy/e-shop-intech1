@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 10, 2023 at 02:09 AM
+-- Generation Time: Mar 12, 2023 at 10:33 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -36,6 +36,13 @@ CREATE TABLE `cart` (
   `quantity` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`id`, `user_id`, `name`, `price`, `image`, `quantity`) VALUES
+(8, 3, 'mikrotik rb5009ug', 300, 'images/mikrotik rb5009ug.png', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -46,17 +53,24 @@ CREATE TABLE `products` (
   `id` int(11) NOT NULL,
   `name` varchar(100) NOT NULL,
   `price` varchar(100) NOT NULL,
-  `image` varchar(150) NOT NULL
+  `image` varchar(150) NOT NULL,
+  `info` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`id`, `name`, `price`, `image`) VALUES
-(24, 'CCR2216-1G-12XS-2XQ', '900$', 'images/CCR2216-1G-12XS-2XQ -2.png'),
-(25, 'mikrotik 1100x4 dude', '370$', 'images/mikrotik 1100x4 dude.png'),
-(26, 'Cisco Catalyst 9136 Series Access Points', '1400$', 'images/index.jpg');
+INSERT INTO `products` (`id`, `name`, `price`, `image`, `info`) VALUES
+(32, 'mikrotik 1100x4 dude', '370$', 'images/mikrotik 1100x4 dude.png', ''),
+(33, 'CCR2004-1G-2XS-PCIe', '250$', 'images/CCR2004-1G-2XS-PCIe -2.png', ''),
+(34, 'CCR2216-1G-12XS-2XQ', '3000$', 'images/CCR2216-1G-12XS-2XQ -2.png', ''),
+(35, 'Cube 60Pro ac', '170$', 'images/Cube 60Pro ac -1.png', ''),
+(36, 'mikrotik rb5009ug', '270$', 'images/mikrotik rb5009ug.png', ''),
+(37, 'Dream Machine Special Edition', '600$', 'images/UDM-PRO-SE_001_2ff68b96-1494-45f4-8816-3a3a9a4eb96f_grande.webp', ''),
+(38, 'Access Point WiFi 6 Long-range', '200$', 'images/U6-LR_01_7b618393-659d-4865-934e-d0db46109565_grande.webp', ''),
+(40, 'Cisco 891F ISDNMdm', '800$', 'images/BDWF_784ECEED-8D79-41FC-A2B8-4378DCB614A4_large -1.jpg', ''),
+(41, 'Meraki MX100 Router', '7000$', 'images/mx100.jpg', '');
 
 -- --------------------------------------------------------
 
@@ -76,7 +90,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`) VALUES
-(2, 't1', 't1@gmail.com', '202cb962ac59075b964b07152d234b70');
+(6, '', 'm@gmail.com', '202cb962ac59075b964b07152d234b70'),
+(7, '', 'ad@gmail.com', '202cb962ac59075b964b07152d234b70');
 
 --
 -- Indexes for dumped tables
@@ -93,6 +108,7 @@ ALTER TABLE `cart`
 --
 ALTER TABLE `products`
   ADD PRIMARY KEY (`id`);
+ALTER TABLE `products` ADD FULLTEXT KEY `info` (`info`);
 
 --
 -- Indexes for table `users`
@@ -108,19 +124,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
