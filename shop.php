@@ -61,8 +61,6 @@ if(isset($_GET['delete_all'])){
     <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
     <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-    <link href="assets/vendor/swiper/swiper-bundle-8.min.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
     <link href="assets/css/custom.css" rel="stylesheet">
     <?php
@@ -76,14 +74,13 @@ if(isset($_GET['delete_all'])){
         <div class="container d-flex align-items-center justify-content-between">
     
           <h1 class="logo"><a href="index.php">INTECH SHOP</a></h1>
-    
           <nav id="navbar" class="navbar">
             <ul>
               <li><a class="nav-link scrollto" href="index.php">Home</a></li>
               <li><a class="nav-link scrollto" href="#about">About</a></li>
               <li><a class="nav-link scrollto active" href="shop.php">Shop</a></li>
               <li><a class="nav-link scrollto" href="#contact">Cart</a></li>
-              <li><a class="nav-link scrollto" href="index.php?logout=<?php echo $user_id; ?>" onclick="return confirm('Are you sure you want to log out?');" class="delete-btn">LOGOUT</a></li>
+              <li><a class="nav-link scrollto" href="login.php?logout=<?php echo $user_id; ?>" onclick="return confirm('Are you sure you want to log out?');" class="delete-btn">LOGOUT</a></li>
               <?php
       $select_user = mysqli_query($conn, "SELECT * FROM `users` WHERE id = '$user_id'") or die('query failed');
       if(mysqli_num_rows($select_user) > 0){
@@ -149,22 +146,22 @@ if(isset($message)){
     </table>
     <div class="row no-gutters">
 			<font color="white">
-          <div class="content container">
+          <div class="content">
             <div class="content">
               <div class=" contact">
                 <div class="info-box rounded-3">
                 <div class="shopping-cart">
 
-   <h1 class="heading"> Shopping Cart</h1>
-
+   <h1 class="heading">Shopping Cart</h1>
+      <br>
    <table align="center">
       <thead>
-         <th>image</th>
-         <th>name</th>
-         <th>price</th>
-         <th>number</th>
-         <th>total price</th>
-         <th>edits</th>
+         <th width="300px">image</th>
+         <th width="300px">name</th>
+         <th width="300px">price</th>
+         <th width="300px">number</th>
+         <th width="300px">total price</th>
+         <th width="300px">edits</th>
       </thead>
       <tbody>
       <?php
@@ -191,7 +188,7 @@ if(isset($message)){
          $grand_total += $sub_total;
             }
          }else{
-            echo '<tr><td style="padding:20px; text-transform:capitalize;" colspan="6">Cart Empty</td></tr>';
+            echo '<tr><td style="padding:50px; text-transform:capitalize;" colspan="6">Cart Empty</td></tr>';
          }
       ?>
       <tr class="table-bottom">
